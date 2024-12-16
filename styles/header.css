@@ -88,7 +88,6 @@
 
   .container__titulo {
       font-weight: 400;
-      display: block;
   }
 
   .container__titulo--negrito {
@@ -97,11 +96,16 @@
 
   .opções {
       display: flex;
+      gap: 1em; /* Espaço entre os itens */
+      list-style: none; /* Remove os bullets da lista */
+      padding: 0; /* Remove padding padrão da lista */
+      margin: 0; /* Remove margem padrão */
   }
 
   .opções__item {
       padding: 0 1em;
       text-transform: uppercase;
+      white-space: nowrap; /* Evita quebra de linha */
   }
 
   .opções__link {
@@ -109,61 +113,53 @@
       color: var(--preto);
   }
 
-  .container__imagem-transparente {
-      display: none;
-  }
-
+  .container__imagem-transparente,
   .cabeçalho__menu-hamburguer {
       display: none;
-  }
-
-  .opções__botão:checked~.lista-menu {
-      display: block;
-      width: auto;
   }
 
   .opções__botão {
       display: none;
   }
 
-}
+  .opções__botão:checked ~ .lista-menu {
+      display: block;
+      width: auto;
+  }
 
-.opções__botão:checked~.opções__rotulo>.opções__item {   /*combinadores*/
-  background: var(--azul-degrade);
-  color: var(--branco);
-}
-
-.opções__item {
-  padding: 2em 1%;
-}
+  .opções__botão:checked ~ .opções__rotulo {
+      background: var(--azul-degrade);
+      color: var(--branco);
+  }
 
   .lista-menu__item:hover {
-    background: var(--azul-degrade);
+      background: var(--azul-degrade);
   }
 
-  .lista-menu__item:hover >.lista-menu__link {
-    -webkit-text-fill-color: var(--branco);
-    text-decoration: none;
+  .lista-menu__item:hover > .lista-menu__link {
+      -webkit-text-fill-color: var(--branco);
+      text-decoration: none;
   }
+}
 
 @media screen and (min-width: 1728px) {
   .container__link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: var(--preto);
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--preto);
   }
 
   .cabeçalho {
-    padding: 0 2em;
+      padding: 0 2em;
   }
 
   .opções {
-    margin-right: auto; /*empurrar um elemento o máximo possível para a esquerda dentro de seu contêiner*/
-    }
-
-    .container__texto {
-      display: block;
-    }
+      margin-right: auto; /* Empurra os itens para a esquerda */
+      gap: 2em; /* Ajusta o espaçamento entre os itens */
   }
-  
+
+  .container__texto {
+      display: block;
+  }
+}
